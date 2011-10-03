@@ -1,0 +1,669 @@
+Loaded suite graph_builder_test
+Started
+initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Branch
+add_thing Thing11
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing12
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=[Thing11, Thing12]]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]]
+      [Thing11]
+      [Thing12]
+**************
+<< GraphBuilder::Branch
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing2]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]]
+      [Thing11]
+      [Thing12]
+   [Thing2]
+**************
+processing [Chain,empty?=false,f=Thing1,l=Thing2]
+       children: [Thing1],[Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]],[Thing2]
+       pair: ([Thing1],[Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]]:  Thing11,Thing12
+       link from=Thing1 to=Thing11
+       link from=Thing1 to=Thing12
+       pair: ([Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]],[Thing2])
+       froms= last_things of [Branch,empty?=false,f=[Thing11, Thing12],l=[Thing11, Thing12]]: Thing11,Thing12
+       tos=  first_things of [Thing2]:  Thing2
+       link from=Thing11 to=Thing2
+       link from=Thing12 to=Thing2
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Branch
+>> GraphBuilder::Chain
+add_thing Thing11
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing12
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11,l=Thing12]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+>> GraphBuilder::Chain
+add_thing Thing21
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing22
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=Thing21,l=Thing22]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=[Thing12, Thing22]]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]]
+      [Chain,empty?=false,f=Thing11,l=Thing12]
+         [Thing11]
+         [Thing12]
+      [Chain,empty?=false,f=Thing21,l=Thing22]
+         [Thing21]
+         [Thing22]
+**************
+<< GraphBuilder::Branch
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing2]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]]
+      [Chain,empty?=false,f=Thing11,l=Thing12]
+         [Thing11]
+         [Thing12]
+      [Chain,empty?=false,f=Thing21,l=Thing22]
+         [Thing21]
+         [Thing22]
+   [Thing2]
+**************
+      processing [Chain,empty?=false,f=Thing11,l=Thing12]
+             children: [Thing11],[Thing12]
+             pair: ([Thing11],[Thing12])
+             froms= last_things of [Thing11]: Thing11
+             tos=  first_things of [Thing12]:  Thing12
+             link from=Thing11 to=Thing12
+      processing [Chain,empty?=false,f=Thing21,l=Thing22]
+             children: [Thing21],[Thing22]
+             pair: ([Thing21],[Thing22])
+             froms= last_things of [Thing21]: Thing21
+             tos=  first_things of [Thing22]:  Thing22
+             link from=Thing21 to=Thing22
+processing [Chain,empty?=false,f=Thing1,l=Thing2]
+       children: [Thing1],[Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]],[Thing2]
+       pair: ([Thing1],[Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]]:  Thing11,Thing21
+       link from=Thing1 to=Thing11
+       link from=Thing1 to=Thing21
+       pair: ([Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]],[Thing2])
+       froms= last_things of [Branch,empty?=false,f=[Thing11, Thing21],l=[Thing12, Thing22]]: Thing12,Thing22
+       tos=  first_things of [Thing2]:  Thing2
+       link from=Thing12 to=Thing2
+       link from=Thing22 to=Thing2
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Branch
+>> GraphBuilder::Chain
+add_thing Thing11
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing12
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11,l=Thing12]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+>> GraphBuilder::Chain
+>> GraphBuilder::Branch
+add_thing Thing21
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Chain
+add_thing Thing31
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing32
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=Thing31,l=Thing32]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Branch
+add_thing Thing23
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=[Thing21, Thing31],l=Thing23]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=[Thing12, Thing23]]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]]
+      [Chain,empty?=false,f=Thing11,l=Thing12]
+         [Thing11]
+         [Thing12]
+      [Chain,empty?=false,f=[Thing21, Thing31],l=Thing23]
+         [Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]]
+            [Thing21]
+            [Chain,empty?=false,f=Thing31,l=Thing32]
+               [Thing31]
+               [Thing32]
+         [Thing23]
+**************
+<< GraphBuilder::Branch
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing2]
+   [Thing1]
+   [Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]]
+      [Chain,empty?=false,f=Thing11,l=Thing12]
+         [Thing11]
+         [Thing12]
+      [Chain,empty?=false,f=[Thing21, Thing31],l=Thing23]
+         [Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]]
+            [Thing21]
+            [Chain,empty?=false,f=Thing31,l=Thing32]
+               [Thing31]
+               [Thing32]
+         [Thing23]
+   [Thing2]
+**************
+      processing [Chain,empty?=false,f=Thing11,l=Thing12]
+             children: [Thing11],[Thing12]
+             pair: ([Thing11],[Thing12])
+             froms= last_things of [Thing11]: Thing11
+             tos=  first_things of [Thing12]:  Thing12
+             link from=Thing11 to=Thing12
+            processing [Chain,empty?=false,f=Thing31,l=Thing32]
+                   children: [Thing31],[Thing32]
+                   pair: ([Thing31],[Thing32])
+                   froms= last_things of [Thing31]: Thing31
+                   tos=  first_things of [Thing32]:  Thing32
+                   link from=Thing31 to=Thing32
+      processing [Chain,empty?=false,f=[Thing21, Thing31],l=Thing23]
+             children: [Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]],[Thing23]
+             pair: ([Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]],[Thing23])
+             froms= last_things of [Branch,empty?=false,f=[Thing21, Thing31],l=[Thing21, Thing32]]: Thing21,Thing32
+             tos=  first_things of [Thing23]:  Thing23
+             link from=Thing21 to=Thing23
+             link from=Thing32 to=Thing23
+processing [Chain,empty?=false,f=Thing1,l=Thing2]
+       children: [Thing1],[Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]],[Thing2]
+       pair: ([Thing1],[Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]]:  Thing11,Thing21,Thing31
+       link from=Thing1 to=Thing11
+       link from=Thing1 to=Thing21
+       link from=Thing1 to=Thing31
+       pair: ([Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]],[Thing2])
+       froms= last_things of [Branch,empty?=false,f=[Thing11, [Thing21, Thing31]],l=[Thing12, Thing23]]: Thing12,Thing23
+       tos=  first_things of [Thing2]:  Thing2
+       link from=Thing12 to=Thing2
+       link from=Thing23 to=Thing2
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Chain
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing3
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+-- @cur=[Chain,empty?=false,f=Thing2,l=Thing3]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing3]
+   [Thing1]
+   [Chain,empty?=false,f=Thing2,l=Thing3]
+      [Thing2]
+      [Thing3]
+**************
+<< GraphBuilder::Chain
+add_thing Thing4
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing4]
+   [Thing1]
+   [Chain,empty?=false,f=Thing2,l=Thing3]
+      [Thing2]
+      [Thing3]
+   [Thing4]
+**************
+   processing [Chain,empty?=false,f=Thing2,l=Thing3]
+          children: [Thing2],[Thing3]
+          pair: ([Thing2],[Thing3])
+          froms= last_things of [Thing2]: Thing2
+          tos=  first_things of [Thing3]:  Thing3
+          link from=Thing2 to=Thing3
+processing [Chain,empty?=false,f=Thing1,l=Thing4]
+       children: [Thing1],[Chain,empty?=false,f=Thing2,l=Thing3],[Thing4]
+       pair: ([Thing1],[Chain,empty?=false,f=Thing2,l=Thing3])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Chain,empty?=false,f=Thing2,l=Thing3]:  Thing2
+       link from=Thing1 to=Thing2
+       pair: ([Chain,empty?=false,f=Thing2,l=Thing3],[Thing4])
+       froms= last_things of [Chain,empty?=false,f=Thing2,l=Thing3]: Thing3
+       tos=  first_things of [Thing4]:  Thing4
+       link from=Thing3 to=Thing4
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing0(#<MyResource:0x1656840>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+>> children
+children: @cur=[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)], last_things=Thing0(#<MyResource:0x1656840>)
+children: resource=#<MyResource:0x1656840>
+>> GraphBuilder::Branch
+>> GraphBuilder::Chain
+add_thing Thing1(#<MyResource:0x16568d0>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+>> children
+children: @cur=[Chain,empty?=false,f=Thing1(#<MyResource:0x16568d0>),l=Thing1(#<MyResource:0x16568d0>)], last_things=Thing1(#<MyResource:0x16568d0>)
+children: resource=#<MyResource:0x16568d0>
+>> GraphBuilder::Branch
+>> GraphBuilder::Chain
+add_thing Thing11(#<MyResource:0x1656a08>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+add_thing Thing12(#<MyResource:0x1656a08>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11(#<MyResource:0x1656a08>),l=Thing12(#<MyResource:0x1656a08>)]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+>> GraphBuilder::Chain
+add_thing Thing11(#<MyResource:0x16569c0>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+add_thing Thing12(#<MyResource:0x16569c0>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11(#<MyResource:0x16569c0>),l=Thing12(#<MyResource:0x16569c0>)]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Branch
+<< children
+-- @cur=[Chain,empty?=false,f=Thing1(#<MyResource:0x16568d0>),l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+>> GraphBuilder::Chain
+add_thing Thing1(#<MyResource:0x1656888>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+>> children
+children: @cur=[Chain,empty?=false,f=Thing1(#<MyResource:0x1656888>),l=Thing1(#<MyResource:0x1656888>)], last_things=Thing1(#<MyResource:0x1656888>)
+children: resource=#<MyResource:0x1656888>
+>> GraphBuilder::Branch
+>> GraphBuilder::Chain
+add_thing Thing11(#<MyResource:0x1656978>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+add_thing Thing12(#<MyResource:0x1656978>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11(#<MyResource:0x1656978>),l=Thing12(#<MyResource:0x1656978>)]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+>> GraphBuilder::Chain
+add_thing Thing11(#<MyResource:0x1656930>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+add_thing Thing12(#<MyResource:0x1656930>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+-- @cur=[Chain,empty?=false,f=Thing11(#<MyResource:0x1656930>),l=Thing12(#<MyResource:0x1656930>)]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Branch
+<< children
+-- @cur=[Chain,empty?=false,f=Thing1(#<MyResource:0x1656888>),l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing0(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+**************
+<< GraphBuilder::Chain
+-- @cur=[Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]
+   [Thing0(#<MyResource:0x1656840>)]
+   [Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]
+      [Chain,empty?=false,f=Thing1(#<MyResource:0x16568d0>),l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+         [Thing1(#<MyResource:0x16568d0>)]
+         [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656a08>),l=Thing12(#<MyResource:0x1656a08>)]
+               [Thing11(#<MyResource:0x1656a08>)]
+               [Thing12(#<MyResource:0x1656a08>)]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x16569c0>),l=Thing12(#<MyResource:0x16569c0>)]
+               [Thing11(#<MyResource:0x16569c0>)]
+               [Thing12(#<MyResource:0x16569c0>)]
+      [Chain,empty?=false,f=Thing1(#<MyResource:0x1656888>),l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+         [Thing1(#<MyResource:0x1656888>)]
+         [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656978>),l=Thing12(#<MyResource:0x1656978>)]
+               [Thing11(#<MyResource:0x1656978>)]
+               [Thing12(#<MyResource:0x1656978>)]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656930>),l=Thing12(#<MyResource:0x1656930>)]
+               [Thing11(#<MyResource:0x1656930>)]
+               [Thing12(#<MyResource:0x1656930>)]
+**************
+<< GraphBuilder::Branch
+<< children
+add_thing Thing2(#<MyResource:0x1656840>)
+*** whole tree ***
+[Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing2(#<MyResource:0x1656840>)]
+   [Thing0(#<MyResource:0x1656840>)]
+   [Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]
+      [Chain,empty?=false,f=Thing1(#<MyResource:0x16568d0>),l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+         [Thing1(#<MyResource:0x16568d0>)]
+         [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656a08>),l=Thing12(#<MyResource:0x1656a08>)]
+               [Thing11(#<MyResource:0x1656a08>)]
+               [Thing12(#<MyResource:0x1656a08>)]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x16569c0>),l=Thing12(#<MyResource:0x16569c0>)]
+               [Thing11(#<MyResource:0x16569c0>)]
+               [Thing12(#<MyResource:0x16569c0>)]
+      [Chain,empty?=false,f=Thing1(#<MyResource:0x1656888>),l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+         [Thing1(#<MyResource:0x1656888>)]
+         [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656978>),l=Thing12(#<MyResource:0x1656978>)]
+               [Thing11(#<MyResource:0x1656978>)]
+               [Thing12(#<MyResource:0x1656978>)]
+            [Chain,empty?=false,f=Thing11(#<MyResource:0x1656930>),l=Thing12(#<MyResource:0x1656930>)]
+               [Thing11(#<MyResource:0x1656930>)]
+               [Thing12(#<MyResource:0x1656930>)]
+   [Thing2(#<MyResource:0x1656840>)]
+**************
+            processing [Chain,empty?=false,f=Thing11(#<MyResource:0x1656a08>),l=Thing12(#<MyResource:0x1656a08>)]
+                   children: [Thing11(#<MyResource:0x1656a08>)],[Thing12(#<MyResource:0x1656a08>)]
+                   pair: ([Thing11(#<MyResource:0x1656a08>)],[Thing12(#<MyResource:0x1656a08>)])
+                   froms= last_things of [Thing11(#<MyResource:0x1656a08>)]: Thing11(#<MyResource:0x1656a08>)
+                   tos=  first_things of [Thing12(#<MyResource:0x1656a08>)]:  Thing12(#<MyResource:0x1656a08>)
+                   link from=Thing11(#<MyResource:0x1656a08>) to=Thing12(#<MyResource:0x1656a08>)
+            processing [Chain,empty?=false,f=Thing11(#<MyResource:0x16569c0>),l=Thing12(#<MyResource:0x16569c0>)]
+                   children: [Thing11(#<MyResource:0x16569c0>)],[Thing12(#<MyResource:0x16569c0>)]
+                   pair: ([Thing11(#<MyResource:0x16569c0>)],[Thing12(#<MyResource:0x16569c0>)])
+                   froms= last_things of [Thing11(#<MyResource:0x16569c0>)]: Thing11(#<MyResource:0x16569c0>)
+                   tos=  first_things of [Thing12(#<MyResource:0x16569c0>)]:  Thing12(#<MyResource:0x16569c0>)
+                   link from=Thing11(#<MyResource:0x16569c0>) to=Thing12(#<MyResource:0x16569c0>)
+      processing [Chain,empty?=false,f=Thing1(#<MyResource:0x16568d0>),l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+             children: [Thing1(#<MyResource:0x16568d0>)],[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]
+             pair: ([Thing1(#<MyResource:0x16568d0>)],[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]])
+             froms= last_things of [Thing1(#<MyResource:0x16568d0>)]: Thing1(#<MyResource:0x16568d0>)
+             tos=  first_things of [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656a08>), Thing11(#<MyResource:0x16569c0>)],l=[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)]]:  Thing11(#<MyResource:0x1656a08>),Thing11(#<MyResource:0x16569c0>)
+             link from=Thing1(#<MyResource:0x16568d0>) to=Thing11(#<MyResource:0x1656a08>)
+             link from=Thing1(#<MyResource:0x16568d0>) to=Thing11(#<MyResource:0x16569c0>)
+            processing [Chain,empty?=false,f=Thing11(#<MyResource:0x1656978>),l=Thing12(#<MyResource:0x1656978>)]
+                   children: [Thing11(#<MyResource:0x1656978>)],[Thing12(#<MyResource:0x1656978>)]
+                   pair: ([Thing11(#<MyResource:0x1656978>)],[Thing12(#<MyResource:0x1656978>)])
+                   froms= last_things of [Thing11(#<MyResource:0x1656978>)]: Thing11(#<MyResource:0x1656978>)
+                   tos=  first_things of [Thing12(#<MyResource:0x1656978>)]:  Thing12(#<MyResource:0x1656978>)
+                   link from=Thing11(#<MyResource:0x1656978>) to=Thing12(#<MyResource:0x1656978>)
+            processing [Chain,empty?=false,f=Thing11(#<MyResource:0x1656930>),l=Thing12(#<MyResource:0x1656930>)]
+                   children: [Thing11(#<MyResource:0x1656930>)],[Thing12(#<MyResource:0x1656930>)]
+                   pair: ([Thing11(#<MyResource:0x1656930>)],[Thing12(#<MyResource:0x1656930>)])
+                   froms= last_things of [Thing11(#<MyResource:0x1656930>)]: Thing11(#<MyResource:0x1656930>)
+                   tos=  first_things of [Thing12(#<MyResource:0x1656930>)]:  Thing12(#<MyResource:0x1656930>)
+                   link from=Thing11(#<MyResource:0x1656930>) to=Thing12(#<MyResource:0x1656930>)
+      processing [Chain,empty?=false,f=Thing1(#<MyResource:0x1656888>),l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+             children: [Thing1(#<MyResource:0x1656888>)],[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]
+             pair: ([Thing1(#<MyResource:0x1656888>)],[Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]])
+             froms= last_things of [Thing1(#<MyResource:0x1656888>)]: Thing1(#<MyResource:0x1656888>)
+             tos=  first_things of [Branch,empty?=false,f=[Thing11(#<MyResource:0x1656978>), Thing11(#<MyResource:0x1656930>)],l=[Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]:  Thing11(#<MyResource:0x1656978>),Thing11(#<MyResource:0x1656930>)
+             link from=Thing1(#<MyResource:0x1656888>) to=Thing11(#<MyResource:0x1656978>)
+             link from=Thing1(#<MyResource:0x1656888>) to=Thing11(#<MyResource:0x1656930>)
+processing [Chain,empty?=false,f=Thing0(#<MyResource:0x1656840>),l=Thing2(#<MyResource:0x1656840>)]
+       children: [Thing0(#<MyResource:0x1656840>)],[Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]],[Thing2(#<MyResource:0x1656840>)]
+       pair: ([Thing0(#<MyResource:0x1656840>)],[Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]])
+       froms= last_things of [Thing0(#<MyResource:0x1656840>)]: Thing0(#<MyResource:0x1656840>)
+       tos=  first_things of [Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]:  Thing1(#<MyResource:0x16568d0>),Thing1(#<MyResource:0x1656888>)
+       link from=Thing0(#<MyResource:0x1656840>) to=Thing1(#<MyResource:0x16568d0>)
+       link from=Thing0(#<MyResource:0x1656840>) to=Thing1(#<MyResource:0x1656888>)
+       pair: ([Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]],[Thing2(#<MyResource:0x1656840>)])
+       froms= last_things of [Branch,empty?=false,f=[Thing1(#<MyResource:0x16568d0>), Thing1(#<MyResource:0x1656888>)],l=[[Thing12(#<MyResource:0x1656a08>), Thing12(#<MyResource:0x16569c0>)], [Thing12(#<MyResource:0x1656978>), Thing12(#<MyResource:0x1656930>)]]]: Thing12(#<MyResource:0x1656a08>),Thing12(#<MyResource:0x16569c0>),Thing12(#<MyResource:0x1656978>),Thing12(#<MyResource:0x1656930>)
+       tos=  first_things of [Thing2(#<MyResource:0x1656840>)]:  Thing2(#<MyResource:0x1656840>)
+       link from=Thing12(#<MyResource:0x1656a08>) to=Thing2(#<MyResource:0x1656840>)
+       link from=Thing12(#<MyResource:0x16569c0>) to=Thing2(#<MyResource:0x1656840>)
+       link from=Thing12(#<MyResource:0x1656978>) to=Thing2(#<MyResource:0x1656840>)
+       link from=Thing12(#<MyResource:0x1656930>) to=Thing2(#<MyResource:0x1656840>)
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+processing [Chain,empty?=false,f=Thing1,l=Thing1]
+       children: [Thing1]
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Branch
+-- @cur=[Branch,empty?=true,f=[],l=[]]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Branch
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing2]
+   [Thing1]
+   [Thing2]
+**************
+processing [Chain,empty?=false,f=Thing1,l=Thing2]
+       children: [Thing1],[Thing2]
+       pair: ([Thing1],[Thing2])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Thing2]:  Thing2
+       link from=Thing1 to=Thing2
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+>> GraphBuilder::Chain
+-- @cur=[Chain,empty?=true,f=,l=]
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+<< GraphBuilder::Chain
+add_thing Thing4
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing4]
+   [Thing1]
+   [Thing4]
+**************
+processing [Chain,empty?=false,f=Thing1,l=Thing4]
+       children: [Thing1],[Thing4]
+       pair: ([Thing1],[Thing4])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Thing4]:  Thing4
+       link from=Thing1 to=Thing4
+.initialize
+*** whole tree ***
+[Chain,empty?=true,f=,l=]
+**************
+add_thing Thing1
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing1]
+   [Thing1]
+**************
+add_thing Thing2
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=Thing2]
+   [Thing1]
+   [Thing2]
+**************
+add_thing TestThing
+*** whole tree ***
+[Chain,empty?=false,f=Thing1,l=TestThing]
+   [Thing1]
+   [Thing2]
+   [TestThing]
+**************
+processing [Chain,empty?=false,f=Thing1,l=TestThing]
+       children: [Thing1],[Thing2],[TestThing]
+       pair: ([Thing1],[Thing2])
+       froms= last_things of [Thing1]: Thing1
+       tos=  first_things of [Thing2]:  Thing2
+       link from=Thing1 to=Thing2
+       pair: ([Thing2],[TestThing])
+       froms= last_things of [Thing2]: Thing2
+       tos=  first_things of [TestThing]:  TestThing
+       link from=Thing2 to=TestThing
+.
+Finished in 0.015625 seconds.
+
+9 tests, 61 assertions, 0 failures, 0 errors, 0 skips
+
+Test run options: --seed 55846
