@@ -30,15 +30,15 @@ which must implement a link between self and other.
 
 graph_builder comes with the module GraphBuilder::Linkable which implements
 
-   # links self to other
-   link_to( other ) 
+    # links self to other
+    link_to( other ) 
 
-   # returns an array of objects self is linked to
-   link_to
+    # returns an array of objects self is linked to
+    link_to
 
-   # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
-   # of self an linked objects
-   links
+    # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
+    # of self an linked objects
+    links
 
     
 
