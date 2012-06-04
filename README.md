@@ -36,7 +36,7 @@ which must implement a link between self and other.
        builder.add b 
     end
 
-#### A simple branch: a -> b, a -> c
+#### A simple branch: a &rarr; b, a &rarr; c
 
     GraphBuilder::Builder.build do |builder|
        builder.add a  
@@ -46,7 +46,7 @@ which must implement a link between self and other.
        end
     end
 
-#### Diamond shaped graph: a -> b -> d,  a -> c -> d
+#### Diamond shaped graph: a &rarr; b &rarr; d,  a &rarr; c &rarr; d
 
     GraphBuilder::Builder.build do |builder|
        builder.add a  
