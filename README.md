@@ -27,6 +27,35 @@ The objects must implement
 which must implement a link between self and other.
 
 
+### Examples:
+
+#### A simple chain: a -> b
+
+    GraphBuilder::Builder.build do |builder|
+       builder.add a 
+       builder.add b 
+    end
+
+#### A simple branch: a -> b, a -> c
+
+    GraphBuilder::Builder.build do |builder|
+       builder.add a  
+       builder.branch do 
+         builder.add b 
+         builder.add c 
+       end
+    end
+
+#### Diamond shaped graph: a -> b -> d,  a -> c -> d
+
+    GraphBuilder::Builder.build do |builder|
+       builder.add a  
+       builder.branch do 
+         builder.add b 
+         builder.add c 
+       end
+       builder.add d  
+    end
 
 graph_builder comes with the module GraphBuilder::Linkable which implements
 
@@ -37,11 +66,8 @@ graph_builder comes with the module GraphBuilder::Linkable which implements
     link_to
 
     # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
-    # of self an linked objects
+    # for linked objects other1,  other2, ...
     links
-
-    
-
 
     
 
