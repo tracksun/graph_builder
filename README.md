@@ -29,7 +29,7 @@ which must implement a link between self and other.
 
 ### Examples:
 
-#### A simple chain: a #xe28692 b
+#### A simple chain: a &rarr; b
 
     GraphBuilder::Builder.build do |builder|
        builder.add a 
