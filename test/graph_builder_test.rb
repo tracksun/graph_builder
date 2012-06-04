@@ -22,7 +22,7 @@ class Thing
 
   attr_reader :resource
   
-  def initialize(resource=nil)
+  def initialize resource=nil
     @resource = resource
   end
 
