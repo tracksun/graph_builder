@@ -58,7 +58,7 @@ which must implement a link between self and other.
        builder.add b  
     end
 
-### Diamond with chains: a &rarr;  l1 &rarr; l2 &rarr; b, a &rarr;  r1 &rarr; r2 &rarr; r3 %rarr; b 
+#### Diamond with chains: a &rarr;  l1 &rarr; l2 &rarr; b, a &rarr;  r1 &rarr; r2 &rarr; r3 &rarr; b 
 
     GraphBuilder::Builder.build do |builder|
        builder.add a  
