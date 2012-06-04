@@ -29,11 +29,12 @@ which must implement a link between self and other.
 
 ### Examples:
 
-#### A simple chain: a &rarr; b
+#### A simple chain: a &rarr; b &rarr; c
 
     GraphBuilder::Builder.build do |builder|
        builder.add a 
        builder.add b 
+       builder.add c 
     end
 
 #### A simple branch: a &rarr; b, a &rarr; c
@@ -46,16 +47,36 @@ which must implement a link between self and other.
        end
     end
 
-#### Diamond shaped graph: a &rarr; b &rarr; d,  a &rarr; c &rarr; d
+#### Diamond shaped graph: a &rarr; l &rarr; b,  a &rarr; r &rarr; b
 
     GraphBuilder::Builder.build do |builder|
        builder.add a  
        builder.branch do 
-         builder.add b 
-         builder.add c 
+         builder.add l 
+         builder.add r 
        end
-       builder.add d  
+       builder.add b  
     end
+
+### Diamond with chains: a &rarr;  l1 &rarr; l2 &rarr; b, a &rarr;  r1 &rarr; r2 &rarr; r3 %rarr; b 
+
+    GraphBuilder::Builder.build do |builder|
+       builder.add a  
+       builder.branch do 
+         builder.chain do 
+           builder.add l1
+           builder.add l2
+         end
+         builder.chain do 
+           builder.add r1
+           builder.add r2
+           builder.add r3
+         end
+       end
+       builder.add b  
+    end
+
+### Implemention of #link_to 
 
 graph_builder comes with the module GraphBuilder::Linkable which implements
 
@@ -68,7 +89,6 @@ graph_builder comes with the module GraphBuilder::Linkable which implements
     # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
     # for linked objects other1,  other2, ...
     links
-
     
 
 ## Contributing
