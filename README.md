@@ -1,6 +1,12 @@
 # GraphBuilder
 
- DSL to build directed graphs
+[![Build History][2]][1]
+
+[1]: http://travis-ci.org/tracksun/graph_builder
+[2]: https://secure.travis-ci.org/tracksun/graph_builder.png?branch=master
+
+
+DSL to build directed graphs
 
 ## Installation
 
