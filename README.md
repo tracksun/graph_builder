@@ -90,7 +90,7 @@ graph_builder comes with the module GraphBuilder::Linkable which implements
     link_to( other ) 
 
     # returns an array of objects self is linked to
-    link_to
+    linked_to
 
     # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
     # for linked objects other1,  other2, ...
