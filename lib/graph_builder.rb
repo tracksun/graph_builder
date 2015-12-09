@@ -132,11 +132,11 @@ module GraphBuilder
         raise BuilderError, "invalid recent_thing #{recent_things}, @cur=#{@cur}. children() expects one recent thing"
       end
       recent_thing = recent_things.first
-      unless recent_thing.resource
-        raise BuilderError, "no resource for recent_thing #{recent_thing}"
-      end
+      #unless recent_thing.resource
+      #  raise BuilderError, "no resource for recent_thing #{recent_thing}"
+      #end
 
-      debug{"children: resource=#{recent_thing.resource}"}
+      #debug{"children: resource=#{recent_thing.resource}"}
 
       branch opts do
         recent_thing.children.map do |child|
