@@ -4,7 +4,7 @@ module GraphBuilder
   DEBUG = false
 
   # implements an AND/OR tree
-  # An Branch represents a branch 
+  # An Branch represents a branch
   # An Chain represents a chain
   # A Leaf contains a thing
   class Base
@@ -22,13 +22,13 @@ module GraphBuilder
       children.each{|c|c.dump(recursive)} if recursive
     end
 
-    def debug &proc 
-      DEBUG or return false
+    def debug &proc
+      GraphBuilder::DEBUG or return false
       puts indent + proc.call
       true
     end
 
-    def indent;    "   " * depth;   end    
+    def indent;    "   " * depth;   end
     def depth;     ancestors.count; end
     def ancestors; parent ? parent.ancestors << parent : [];  end
   end
@@ -48,7 +48,7 @@ module GraphBuilder
     end
 
   end
-  
+
   class Leaf < Base
     attr_reader :thing
     def initialize parent, thing
@@ -71,7 +71,7 @@ module GraphBuilder
 
       debug{"processing #{self}"}
       debug{"       children: #{children.map(&:to_s).join(',')}" }
-      
+
       # Connect the pairs of a chain:
       # connect all last_things of child with the first_things of the following child
       children.each_cons(2) do |pair|
@@ -83,7 +83,7 @@ module GraphBuilder
         tos.each do |to|
           froms.each do |from|
             debug{"       link from=#{from} to=#{to}"}
-            from.link_to to 
+            from.link_to to
           end
         end
       end
@@ -104,7 +104,7 @@ module GraphBuilder
     end
 
     attr_reader :logger
-    
+
     def initialize opts = {}
       @cur = @root = Chain.new(nil)
       @logger = opts.delete(:logger)
@@ -120,7 +120,7 @@ module GraphBuilder
 
     def chain  opts = {}, &proc ;  node Chain,  opts, proc; end
     def branch opts = {}, &proc ;  node Branch, opts, proc; end
-    
+
     alias_method :with, :chain
 
     # yield each child of the children of the recent thing
@@ -157,7 +157,7 @@ module GraphBuilder
       if value
         @opts[key] = value
       else
-        @opts[key] 
+        @opts[key]
       end
     end
 
@@ -166,7 +166,7 @@ module GraphBuilder
     # perform block with given opts
     def node clazz, opts, proc
       debug{">> #{clazz}"}
-      # push 
+      # push
       prev = @cur
       @cur = clazz.new(prev,opts)
       proc.call

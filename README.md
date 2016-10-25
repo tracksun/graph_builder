@@ -2,8 +2,8 @@
 
 [![Build History][2]][1]
 
-[1]: http://travis-ci.org/tracksun/graph_builder
-[2]: https://secure.travis-ci.org/tracksun/graph_builder.png?branch=master
+[1]: http://travis-ci.org/tsonntag/graph_builder
+[2]: https://secure.travis-ci.org/tsonntag/graph_builder.png?branch=master
 
 
 DSL to build directed graphs
@@ -26,9 +26,9 @@ Or install it yourself as:
 
 GraphBuilder provides a DSL to build a graph of arbritary objects.
 
-The objects must implement 
+The objects must implement
 
-    link_to( other ) 
+    link_to( other )
 
 which must implement a link between self and other.
 
@@ -38,56 +38,56 @@ which must implement a link between self and other.
 #### A simple chain: a &rarr; b &rarr; c
 
     GraphBuilder::Builder.build do |builder|
-       builder.add a 
-       builder.add b 
-       builder.add c 
+       builder.add a
+       builder.add b
+       builder.add c
     end
 
 #### A simple branch: a &rarr; b, a &rarr; c
 
     GraphBuilder::Builder.build do |builder|
-       builder.add a  
-       builder.branch do 
-         builder.add b 
-         builder.add c 
+       builder.add a
+       builder.branch do
+         builder.add b
+         builder.add c
        end
     end
 
 #### Diamond shaped graph: a &rarr; l &rarr; b,  a &rarr; r &rarr; b
 
     GraphBuilder::Builder.build do |builder|
-       builder.add a  
-       builder.branch do 
-         builder.add l 
-         builder.add r 
+       builder.add a
+       builder.branch do
+         builder.add l
+         builder.add r
        end
-       builder.add b  
+       builder.add b
     end
 
-#### Diamond with chains: a &rarr;  l1 &rarr; l2 &rarr; b, a &rarr;  r1 &rarr; r2 &rarr; r3 &rarr; b 
+#### Diamond with chains: a &rarr;  l1 &rarr; l2 &rarr; b, a &rarr;  r1 &rarr; r2 &rarr; r3 &rarr; b
 
     GraphBuilder::Builder.build do |builder|
-       builder.add a  
-       builder.branch do 
-         builder.chain do 
+       builder.add a
+       builder.branch do
+         builder.chain do
            builder.add l1
            builder.add l2
          end
-         builder.chain do 
+         builder.chain do
            builder.add r1
            builder.add r2
            builder.add r3
          end
        end
-       builder.add b  
+       builder.add b
     end
 
-### Implemention of #link_to 
+### Implemention of #link_to
 
 graph_builder comes with the module GraphBuilder::Linkable which implements
 
     # links self to other
-    link_to( other ) 
+    link_to( other )
 
     # returns an array of objects self is linked to
     linked_to
@@ -95,7 +95,7 @@ graph_builder comes with the module GraphBuilder::Linkable which implements
     # returns an array of pairs [ [ self, other1 ], [ self, other2 ], ... ]
     # for linked objects other1,  other2, ...
     links
-    
+
 
 ## Contributing
 
