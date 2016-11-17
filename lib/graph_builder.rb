@@ -1,14 +1,14 @@
 module GraphBuilder
   class BuilderError < StandardError; end
 
-  DEBUG = false
-
   # implements an AND/OR tree
   # An Branch represents a branch
   # An Chain represents a chain
   # A Leaf contains a thing
   class Base
     attr_reader :parent, :opts, :children
+
+    @@debug = false
 
     def initialize parent, opts = {}
       @parent, @opts, @children = parent, opts, []
@@ -23,7 +23,7 @@ module GraphBuilder
     end
 
     def debug &proc
-      GraphBuilder::DEBUG or return false
+      @@debug or return false
       puts indent + proc.call
       true
     end
